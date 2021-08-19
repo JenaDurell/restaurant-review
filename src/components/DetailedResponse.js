@@ -1,6 +1,10 @@
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import React, { Component } from "react";
+import MoreHorizRoundedIcon from "@material-ui/icons/MoreHorizRounded";
+import ReplyIcon from "@material-ui/icons/Reply";
 import "../styles/styles.css";
+import { format } from "date-fns";
+import { Link } from "gatsby";
+
 class DetailedResponse extends Component {
   constructor(props) {
     super(props);
@@ -13,11 +17,8 @@ class DetailedResponse extends Component {
       editMode: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
 
-    //component did mount check local storage for response based on id
-    // componentDidMount() {
-    console.log("im in did mount");
+    //handles local storage of responses to reviews
     const localObjForId = localStorage.getItem(
       "rev_track_id-" + this.props.review_id
     );
@@ -26,53 +27,69 @@ class DetailedResponse extends Component {
       this.state.response = localJSON.response;
       this.state.name = localJSON.name;
       this.state.published_at = localJSON.published_at;
-      console.log(this.state.response);
     } else {
       this.state.editMode = true;
     }
   }
+
+  //handles display of either review responses or the form to submit a response to review
   toggleEditMode = () => {
-    console.log("im in");
     if (this.state.editMode === true) {
-      console.log(this.state.editMode);
       this.setState({ editMode: false });
     } else {
-      // console.log(this.state.editMode)
       this.setState({ editMode: true });
     }
   };
-  //toggle edit mode
-  //make comment post and have form disappear
+
+  //sets review response or edit to review response in local storage and updates display
   handleSubmit(event) {
     event.preventDefault();
+    //handles date format for response to review
+    let responseDate = format(new Date(), "MM/dd/yyyy");
     const formObj = {
       name: event.target.name.value,
       response: event.target.message.value,
-      published_at: new Date(),
+      published_at: responseDate,
     };
     localStorage.setItem(
       "rev_track_id-" + this.props.review_id,
       JSON.stringify(formObj)
     );
+
     this.setState({
       name: formObj.name,
       response: formObj.response,
-      published_at: new Date().toString(),
+      published_at: responseDate,
     });
     this.toggleEditMode();
   }
+
   render() {
-    let response = this.state.response;
-    console.log("res", response);
     if (this.state.editMode === false) {
       return (
         <div className="response-window">
-          <div>{this.state.response}</div>
-          <div>{this.state.name}</div>
-          <div>{this.state.published_at}</div>
-          <button onClick={() => this.toggleEditMode()}>
-            <MoreHorizIcon />
-          </button>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <div>
+              <Link to="/">
+                <ReplyIcon className='reply-icon'  />
+              </Link>
+            </div>
+            <div className='detail-main'>
+              <div className="single-author-date-wrap">
+                <div className="content">{this.state.response}</div>
+                <button
+                  className="ellipse-icon"
+                  onClick={() => this.toggleEditMode()}
+                >
+                  <MoreHorizRoundedIcon style={{ fontSize: "3rem" }} />
+                </button>
+              </div>
+              <div className="single-author-date-wrap">
+                <div>{this.state.name}</div>
+                <div>{this.state.published_at}</div>{" "}
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
@@ -82,14 +99,14 @@ class DetailedResponse extends Component {
             <input
               name="name"
               type="text"
-              placeholder="name"
+              placeholder="Name"
               defaultValue={this.state.name}
             ></input>
 
             <input
               name="message"
               type="text"
-              placeholder="comment"
+              placeholder="Comment"
               defaultValue={this.state.response}
             ></input>
 

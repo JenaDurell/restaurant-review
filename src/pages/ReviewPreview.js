@@ -7,15 +7,16 @@ import { format } from "date-fns";
 import TextTruncate from "react-text-truncate";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import Masonry from "react-masonry-css";
-import Response from "../components/Response";
+import ResponseCheck from "../components/ResponseCheck";
 const ReviewPreview = () => {
   const breakpoints = {
     default: 3,
     1100: 2,
     700: 1,
   };
+
   return (
-    <div className='container'>
+    <div className="container">
       <Masonry
         breakpointCols={breakpoints}
         className="my-masonry-grid"
@@ -26,15 +27,15 @@ const ReviewPreview = () => {
             new Date(review.published_at),
             "MM/dd/yyyy"
           );
-            let response = JSON.stringify(review.response)
           return (
-            <div key={review.id} className='box-sizer'>
+            <div key={review.id} className="box-sizer">
               <div className="review-preview-box">
-                <div >
-                  <h4>{review.place}</h4>
+                <div>
+                  <div className="place">{review.place}</div>
 
                   <Stars numberOfStars={review.rating} />
                   <TextTruncate
+                    className="content"
                     line={1}
                     text={review.content}
                     textTruncateChild={
@@ -47,18 +48,17 @@ const ReviewPreview = () => {
                           content: ` ${review.content}`,
                           author: `${review.author}`,
                           published_at: `${review.published_at}`,
-                          response: `${response}`,
                         }}
                       >
-                        <ArrowRightAltIcon />
+                        <ArrowRightAltIcon className='right-icon'/>
                       </Link>
                     }
                   />
-                  <div className="author-date-wrap">
-                    <h5 className="author">{review.author}</h5>
-                    <h5 className="author">{publishedDate}</h5>
-                    <Response response={review.response} />
-                  </div>
+                </div>
+                <div className="author-date-wrap">
+                  <div>{review.author}</div>
+                  <div className="date">{publishedDate}</div>
+                  <ResponseCheck id={review.id} />
                 </div>
               </div>
             </div>
