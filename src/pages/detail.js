@@ -12,7 +12,7 @@ const ReviewDetail = ({location}) => {
       <Header pageName="Review Details" />
       <div className="review-box">
       <div>{location.state.place}</div>
-      <Stars starCount={stars}/>
+      <Stars numberOfStars={stars}/>
       <div>{location.state.content}</div>
       <div>{location.state.author}</div>
       <div>{publishedDate}</div>

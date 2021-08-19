@@ -1,23 +1,18 @@
 import React, { Component } from "react";
 import { Star } from "@material-ui/icons";
 
-class Stars extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stars: props.starCount,
-    };
-  }
 
-  render() {
+
+  const Stars =({ numberOfStars })=>{
+ 
     return (
       <div>
-        {Array(this.state.stars).fill(
+        {Array(numberOfStars).fill(
           <Star className="material-icons" />
         )}
       </div>
     );
   }
-}
+
 
 export default Stars;

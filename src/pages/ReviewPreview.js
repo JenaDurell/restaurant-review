@@ -33,7 +33,7 @@ const ReviewPreview = () => {
                 <div >
                   <h4>{review.place}</h4>
 
-                  <Stars starCount={review.rating} />
+                  <Stars numberOfStars={review.rating} />
                   <TextTruncate
                     line={1}
                     text={review.content}
