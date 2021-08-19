@@ -1,12 +1,22 @@
-import * as React from "react"
-
+import * as React from "react";
+import "../styles/styles.css";
+import Header from "../components/Header";
+import ReviewPreview from "./ReviewPreview";
 
 const IndexPage = () => {
   return (
-    <main >
-      <h1>Jena's Restaurant Review</h1>
-    </main>
-  )
-}
+    <div>
+      <Header pageName="Restaurant Reviews!" />
 
-export default IndexPage
+    
+      <div className='review'>
+       
+          
+           <ReviewPreview/>
+          
+      </div>
+    </div>
+  );
+};
+
+export default IndexPage;
