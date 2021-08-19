@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles/styles.css";
 import Header from "../components/Header";
-import ReviewPreview from "./ReviewPreview";
+import ReviewPreview from "../components/ReviewPreview";
 
 const IndexPage = () => {
   return (

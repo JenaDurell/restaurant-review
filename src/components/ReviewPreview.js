@@ -2,12 +2,12 @@ import React from "react";
 import "../styles/styles.css";
 import Data from "../data/reviews.json";
 import { Link } from "gatsby";
-import Stars from "../components/Stars";
+import Stars from "./Stars";
 import { format } from "date-fns";
 import TextTruncate from "react-text-truncate";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import Masonry from "react-masonry-css";
-import ResponseCheck from "../components/ResponseCheck";
+import ResponseCheck from "./ResponseCheck";
 const ReviewPreview = () => {
   const breakpoints = {
     default: 3,
