@@ -40,7 +40,7 @@ const ReviewPreview = () => {
                     text={review.content}
                     textTruncateChild={
                       <Link
-                        to="/detail"
+                        to="/ReviewDetail"
                         state={{
                           id: `${review.id}`,
                           place: `${review.place}`,
