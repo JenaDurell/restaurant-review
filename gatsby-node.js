@@ -1,4 +1,6 @@
 var md5 = require("md5"); 
+const path = require(`path`)
+
 const hash = md5(`${new Date().getTime()}`)
 
 const addPageDataVersion = async file => {
