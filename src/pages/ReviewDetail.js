@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import DetailedResponse from "../components/DetailedResponse";
 const ReviewDetail = ({ location }) => {
   let publishedDate = format(
-    new Date(location.state.published_at),
+    new Date(location.state.publishedAt),
     "MM/dd/yyyy"
   );
   let stars = parseInt(location.state.rating);
@@ -27,7 +27,7 @@ const ReviewDetail = ({ location }) => {
       </div>
       <DetailedResponse
         response={location.state.response}
-        review_id={location.state.id}
+        reviewId={location.state.id}
       />
     </div>
   );

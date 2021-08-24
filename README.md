@@ -1,57 +1,28 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
-## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1. This project was built using Gatsby. If you don't have the gatsby cli, type  
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+npm install -g gatsby-cli
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+from the command line of your terminal to install it. 
 
-2.  **Start developing.**
+2. You should then be able to type
 
-    Navigate into your new site’s directory and start it up.
+gatsby develop
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+from the command line to bring up the project on localhost:8000 to see it in action.
 
-3.  **Open the code and start customizing!**
+3. To run the test for the Stars component, type 
 
-    Your site is now running at http://localhost:8000!
+npm test 
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+from the command line.
 
-4.  **Learn more**
+4. localStorage is used in order to store user comments locally and have the chat boxes appear on the reviews that have been commented on.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+5. In addition to Gatsby, the packages listed below were used.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
 
 ## react-text-truncate used to truncate reviews
 

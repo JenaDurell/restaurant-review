@@ -47,7 +47,7 @@ const ReviewPreview = () => {
                           rating: `${review.rating}`,
                           content: ` ${review.content}`,
                           author: `${review.author}`,
-                          published_at: `${review.published_at}`,
+                          publishedAt: `${review.published_at}`,
                         }}
                       >
                         <ArrowRightAltIcon className='right-icon'/>

@@ -11,8 +11,8 @@ class DetailedResponse extends Component {
     this.state = {
       response: "",
       name: "",
-      published_at: "",
-      id: props.review_id,
+      publishedAt: "",
+      id: props.reviewId,
       responseExists: false,
       editMode: false,
     };
@@ -20,13 +20,13 @@ class DetailedResponse extends Component {
 
     //handles local storage of responses to reviews
     const localObjForId = localStorage.getItem(
-      "rev_track_id-" + this.props.review_id
+      "rev_track_id-" + this.props.reviewId
     );
     if (localObjForId !== null) {
       let localJSON = JSON.parse(localObjForId);
       this.state.response = localJSON.response;
       this.state.name = localJSON.name;
-      this.state.published_at = localJSON.published_at;
+      this.state.publishedAt = localJSON.publishedAt;
     } else {
       this.state.editMode = true;
     }
@@ -46,13 +46,22 @@ class DetailedResponse extends Component {
     event.preventDefault();
     //handles date format for response to review
     let responseDate = format(new Date(), "MM/dd/yyyy");
+    console.log(event.target.name.value)
+    if (!event.target.name.value ){
+      alert("Please add your name!")
+      return
+    }
+    if (!event.target.message.value) {
+      alert("Please add your comment!")
+      return
+    }
     const formObj = {
       name: event.target.name.value,
       response: event.target.message.value,
-      published_at: responseDate,
+      publishedAt: responseDate,
     };
     localStorage.setItem(
-      "rev_track_id-" + this.props.review_id,
+      "rev_track_id-" + this.props.reviewId,
       JSON.stringify(formObj)
     );
 
@@ -86,7 +95,7 @@ class DetailedResponse extends Component {
               </div>
               <div className="single-author-date-wrap">
                 <div>{this.state.name}</div>
-                <div>{this.state.published_at}</div>{" "}
+                <div>{this.state.publishedAt}</div>{" "}
               </div>
             </div>
           </div>
